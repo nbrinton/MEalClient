@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { PlanComponent } from './plan/plan.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RecipesComponent } from './recipes/recipes.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,19 @@ const routes: Routes = [
   },
   {
     path: 'plan',
-    component: PlanComponent
+    component: PlanComponent,
+    data: {
+      name: 'Plan',
+      icon: 'fas fa-house'
+    }
+  },
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    data: {
+      name: 'Recipes',
+      icon: 'fas fa-edit'
+    }
   },
   {
     path: '**',

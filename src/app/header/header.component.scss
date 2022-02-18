@@ -1,0 +1,29 @@
+@import '../../scss/index';
+
+.nav-tabs {
+  list-style: none;
+  background-color: $app-secondary-color;
+  border-bottom: none;
+
+  li {
+    border: none;
+    border-radius: 0;
+
+    a {
+      color: $app-background-color;
+    }
+
+    .nav-link {
+      border: none;
+      border-radius: 0;
+      margin: 0;
+
+      &.active {
+        background-color: $app-primary-color;
+        color: white;
+        border: none;
+        font-weight: bold;
+      }
+    }
+  }
+}

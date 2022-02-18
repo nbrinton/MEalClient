@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import './scss/index';
+
+html, body {
+  background-color: $app-background-color;
+  color: white;
+}
+
+.fab {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: $app-primary-color;
+  box-shadow: 5px 8px 24px darken($app-background-color, 5%);
+
+  i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+  }
+
+  &:hover {
+    background-color: lighten($app-primary-color, 5%);
+  }
+}

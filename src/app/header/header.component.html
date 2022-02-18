@@ -1,0 +1,9 @@
+
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li *ngFor="let page of pages"
+      ngbNavItem
+      [routerLink]="page.path"
+      routerLinkActive="active">
+    <a ngbNavLink><i [class]="page.data?.icon"></i> {{ page.data?.name }}</a>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
