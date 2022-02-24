@@ -8,9 +8,16 @@
   li {
     border: none;
     border-radius: 0;
+    min-width: 120px;
+    text-align: center;
+
+    &:hover:not(.active) {
+      background-color: darken($app-secondary-color, 5%);
+    }
 
     a {
       color: $app-background-color;
+      font-size: 20px;
     }
 
     .nav-link {
@@ -19,8 +26,8 @@
       margin: 0;
 
       &.active {
-        background-color: $app-primary-color;
-        color: white;
+        background-color: $app-background-color;
+        color: $app-secondary-color;
         border: none;
         font-weight: bold;
       }

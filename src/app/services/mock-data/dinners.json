@@ -1,0 +1,94 @@
+[
+  {
+    "id": 0,
+    "name": "Spaghetti"
+  },
+  {
+    "id": 1,
+    "name": "Red Chili"
+  },
+  {
+    "id": 2,
+    "name": "Green Chili"
+  },
+  {
+    "id": 3,
+    "name": "Pesto"
+  },
+  {
+    "id": 4,
+    "name": "Fettuccine Alfredo"
+  },
+  {
+    "id": 5,
+    "name": "Fried Chicken"
+  },
+  {
+    "id": 6,
+    "name": "Chicken & Roasted Potatoes"
+  },
+  {
+    "id": 7,
+    "name": "Philly Cheesesteak Sandwiches"
+  },
+  {
+    "id": 8,
+    "name": "Chicken & Dumplings"
+  },
+  {
+    "id": 9,
+    "name": "Burgers & Fries"
+  },
+  {
+    "id": 10,
+    "name": "Chow Mein & Beijing Beef"
+  },
+  {
+    "id": 11,
+    "name": "Chicken Orzo"
+  },
+  {
+    "id": 12,
+    "name": "Chicken & Bacon Bow-Ties"
+  },
+  {
+    "id": 13,
+    "name": "Enchilada Casserole"
+  },
+  {
+    "id": 14,
+    "name": "Beef Stroganoff"
+  },
+  {
+    "id": 15,
+    "name": "Lasagna"
+  },
+  {
+    "id": 16,
+    "name": "Chicken Noodle Soup"
+  },
+  {
+    "id": 17,
+    "name": "Burritos"
+  },
+  {
+    "id": 18,
+    "name": "Loaded Baked Potato Soup"
+  },
+  {
+    "id": 19,
+    "name": "Filet Mignon & Mashed Potatoes"
+  },
+  {
+    "id": 20,
+    "name": "Hawaiian Pork & Cocunut Rice"
+  },
+  {
+    "id": 21,
+    "name": "Kraut Beirut"
+  },
+  {
+    "id": 22,
+    "name": "Homemade Pizza"
+  }
+]

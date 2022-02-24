@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "name": "Deli Sandwich"
+  },
+  {
+    "id": 1,
+    "name": "Croissandwich"
+  },
+  {
+    "id": 2,
+    "name": "Leftovers"
+  },
+  {
+    "id": 3,
+    "name": "Eating Out"
+  }
+]

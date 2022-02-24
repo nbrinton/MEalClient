@@ -1,0 +1,74 @@
+@import '../../scss/index';
+
+:host {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.meals {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.meal {
+  display: inline-block;
+  padding:10px;
+  margin: 10px;
+  list-style: none;
+  background-color: lighten($app-background-color, 2%);
+  min-width: 300px;
+  width: 30%;
+
+  .list-group {
+    .list-group-item {
+
+      background-color: lighten($app-background-color, 2%);
+
+      &:hover {
+        background-color: lighten($app-background-color, 5%);
+
+        .modify {
+          visibility: visible;
+        }
+      }
+
+      &.add {
+        text-align: center;
+        background-color: $app-primary-color;
+
+        &:hover {
+          background-color: lighten($app-primary-color, 5%);
+        }
+      }
+
+      .modify {
+        visibility: hidden;
+        float: right;
+
+        i {
+          padding-left: 10px;
+        }
+
+        .fa-trash {
+          color: $app-delete-red;
+
+          &:hover {
+            color: lighten($app-delete-red, 10%);
+          }
+        }
+
+        .fa-arrow-rotate-right {
+          color: $app-refresh-blue;
+
+          &:hover {
+            color: lighten($app-refresh-blue, 10%);
+          }
+        }
+      }
+    }
+  }
+}
