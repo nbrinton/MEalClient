@@ -17,7 +17,8 @@ const routes: Routes = [
     component: PlanComponent,
     data: {
       name: 'Plan',
-      icon: 'fas fa-house'
+      icon: 'fas fa-house',
+      nav: true
     }
   },
   {
@@ -25,7 +26,8 @@ const routes: Routes = [
     component: RecipesComponent,
     data: {
       name: 'Recipes',
-      icon: 'fas fa-edit'
+      icon: 'fas fa-edit',
+      nav: true
     }
   },
   {

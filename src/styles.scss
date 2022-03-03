@@ -8,6 +8,12 @@ html, body {
   width: 100%;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .fab {
   position: fixed;
   bottom: 50px;
@@ -30,5 +36,104 @@ html, body {
 
   &:hover {
     background-color: lighten($app-primary-color, 5%);
+  }
+}
+
+.meals {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.modify {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+  margin-left: auto;
+
+  i {
+    padding-left: 10px;
+  }
+
+  .fa-trash {
+    color: $app-delete-red;
+
+    &:hover {
+      color: lighten($app-delete-red, 10%);
+    }
+  }
+
+  .fa-arrow-rotate-right {
+    color: $app-refresh-blue;
+
+    &:hover {
+      color: lighten($app-refresh-blue, 10%);
+    }
+  }
+}
+
+.meal {
+  display: inline-block;
+  padding:10px;
+  margin: 10px;
+  list-style: none;
+  background-color: lighten($app-background-color, 2%);
+  min-width: 300px;
+  width: 30%;
+  height: fit-content;
+
+  .meal-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+    h2 {
+      display: inline-block;
+      margin: 0;
+    }
+
+    i {
+      color: $app-secondary-color;
+
+      &:hover {
+        color: lighten($app-secondary-color, 10%);
+      }
+    }
+  }
+
+  .list-group {
+    .list-group-item {
+      display: flex;
+      align-items: center;
+      background-color: lighten($app-background-color, 2%);
+
+      .modify {
+        visibility: hidden;
+      }
+
+      &:hover {
+        background-color: lighten($app-background-color, 5%);
+
+        .modify {
+          visibility: visible;
+        }
+      }
+
+      &.add {
+        text-align: center;
+        background-color: $app-primary-color;
+
+        &:hover {
+          background-color: lighten($app-primary-color, 5%);
+        }
+
+        i {
+          margin-left: 5px;
+        }
+      }
+    }
   }
 }

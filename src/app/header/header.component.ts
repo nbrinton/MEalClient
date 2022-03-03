@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   constructor(private routesService: RoutesService) { }
 
   ngOnInit(): void {
-    this.pages = this.routesService.get();
+    this.pages = this.routesService.get().filter(r => r.data?.nav === true);
   }
 
 }

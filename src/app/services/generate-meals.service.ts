@@ -11,6 +11,18 @@ export class GenerateMealsService {
 
   constructor() { }
 
+  getAllBreakfasts(): Recipe[] {
+    return breakfasts;
+  }
+
+  getAllLunches(): Recipe[] {
+    return lunches;
+  }
+
+  getAllDinners(): Recipe[] {
+    return dinners;
+  }
+
   generateBreakfasts(): Recipe[] {
     let chosenBreakfasts = [];
     for (let i = 0; i < 7; i++) {

@@ -25,6 +25,18 @@ export class PlanComponent implements OnInit {
     this.dinners = this.generateMealsService.generateDinners();
   }
 
+  onClickGenerateBreakfasts() {
+    this.breakfasts = this.generateMealsService.generateBreakfasts();
+  }
+
+  onClickGenerateLunches() {
+    this.lunches = this.generateMealsService.generateLunches();
+  }
+
+  onClickGenerateDinners() {
+    this.dinners = this.generateMealsService.generateDinners();
+  }
+
   deleteBreakfast(index: number) {
     this.breakfasts.splice(index, 1);
   }

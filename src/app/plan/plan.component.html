@@ -1,7 +1,21 @@
 
 <div class="meals">
   <div class="meal">
-    <h2>Breakfast</h2>
+    <div class="meal-header">
+      <h2>Breakfast</h2>
+      <div class="modify">
+        <i *ngIf="breakfasts.length == 0"
+           class="fas fa-plus fa-lg"
+           (click)="onClickGenerateBreakfasts()"
+           title="Generate breakfasts">
+        </i>
+        <i *ngIf="breakfasts.length > 0"
+           class="fas fa-arrow-rotate-right fa-lg"
+           (click)="onClickGenerateBreakfasts()"
+           title="Re-generate breakfasts">
+        </i>
+      </div>
+    </div>
     <ul class="list-group">
       <li *ngFor="let breakfast of breakfasts; let i = index;"
           class="list-group-item">
@@ -14,14 +28,28 @@
         </span>
       </li>
       <li *ngIf="breakfasts.length < 7"
-          class="list-group-item add"
+          class="list-group-item add center"
           (click)="addBreakfast()">
         Add Item <i class="fas fa-plus fa-lg"></i>
       </li>
     </ul>
   </div>
   <div class="meal">
-    <h2>Lunch</h2>
+    <div class="meal-header">
+      <h2>Lunch</h2>
+      <div class="modify">
+        <i *ngIf="lunches.length == 0"
+           class="fas fa-plus fa-lg"
+           (click)="onClickGenerateLunches()"
+           title="Generate lunches">
+        </i>
+        <i *ngIf="lunches.length > 0"
+           class="fas fa-arrow-rotate-right fa-lg"
+           (click)="onClickGenerateLunches()"
+           title="Re-generate lunches">
+        </i>
+      </div>
+    </div>
     <ul class="list-group">
       <li *ngFor="let lunch of lunches; let i = index;"
           class="list-group-item recipe-item">
@@ -41,7 +69,21 @@
     </ul>
   </div>
   <div class="meal">
-    <h2>Dinner</h2>
+    <div class="meal-header">
+      <h2>Dinner</h2>
+      <div class="modify">
+        <i *ngIf="dinners.length == 0"
+           class="fas fa-plus fa-lg"
+           (click)="onClickGenerateDinners()"
+           title="Generate dinners">
+        </i>
+        <i *ngIf="dinners.length > 0"
+           class="fas fa-arrow-rotate-right fa-lg"
+           (click)="onClickGenerateDinners()"
+           title="Re-generate dinners">
+        </i>
+      </div>
+    </div>
     <ul class="list-group">
       <li *ngFor="let dinner of dinners; let i = index;"
           class="list-group-item recipe-item">
