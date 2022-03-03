@@ -10,6 +10,7 @@
     border-radius: 0;
     min-width: 120px;
     text-align: center;
+    background-color: $app-secondary-color;
 
     &:hover:not(.active) {
       background-color: darken($app-secondary-color, 5%);

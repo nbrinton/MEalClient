@@ -37,6 +37,18 @@ export class PlanComponent implements OnInit {
     this.dinners = this.generateMealsService.generateDinners();
   }
 
+  onClickDeleteAllBreakfasts() {
+    this.breakfasts = [];
+  }
+
+  onClickDeleteAllLunches() {
+    this.lunches = [];
+  }
+
+  onClickDeleteAllDinners() {
+    this.dinners = [];
+  }
+
   deleteBreakfast(index: number) {
     this.breakfasts.splice(index, 1);
   }

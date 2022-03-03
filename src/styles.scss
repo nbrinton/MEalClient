@@ -8,6 +8,11 @@ html, body {
   width: 100%;
 }
 
+div, p, ul, li {
+  background-color: $app-background-color;
+  color: white;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -52,6 +57,7 @@ html, body {
   align-items: center;
   margin-right: 0;
   margin-left: auto;
+  background-color: lighten($app-background-color, 2%);
 
   i {
     padding-left: 10px;
@@ -77,11 +83,10 @@ html, body {
 .meal {
   display: inline-block;
   padding:10px;
-  margin: 10px;
   list-style: none;
   background-color: lighten($app-background-color, 2%);
   min-width: 300px;
-  width: 30%;
+  width: 100%;
   height: fit-content;
 
   .meal-header {
@@ -89,6 +94,26 @@ html, body {
     display: flex;
     align-items: center;
     height: 40px;
+    background-color: lighten($app-background-color, 2%);
+    padding-bottom: 5px;
+
+    .modify {
+      .fa-trash {
+        color: $app-delete-red;
+
+        &:hover {
+          color: lighten($app-delete-red, 10%);
+        }
+      }
+
+      .fa-arrow-rotate-right {
+        color: $app-refresh-blue;
+
+        &:hover {
+          color: lighten($app-refresh-blue, 10%);
+        }
+      }
+    }
 
     h2 {
       display: inline-block;
@@ -105,6 +130,8 @@ html, body {
   }
 
   .list-group {
+      background-color: lighten($app-background-color, 2%);
+
     .list-group-item {
       display: flex;
       align-items: center;

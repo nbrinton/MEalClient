@@ -1,109 +1,30 @@
 
 <div class="meals">
-  <div class="meal">
-    <div class="meal-header">
-      <h2>Breakfast</h2>
-      <div class="modify">
-        <i *ngIf="breakfasts.length == 0"
-           class="fas fa-plus fa-lg"
-           (click)="onClickGenerateBreakfasts()"
-           title="Generate breakfasts">
-        </i>
-        <i *ngIf="breakfasts.length > 0"
-           class="fas fa-arrow-rotate-right fa-lg"
-           (click)="onClickGenerateBreakfasts()"
-           title="Re-generate breakfasts">
-        </i>
-      </div>
-    </div>
-    <ul class="list-group">
-      <li *ngFor="let breakfast of breakfasts; let i = index;"
-          class="list-group-item">
-        {{breakfast.name}}
-        <span class="modify">
-          <i class="fa-solid fa-arrow-rotate-right fa-lg"
-             (click)="replaceBreakfast(i)"></i>
-          <i class="fa-solid fa-trash fa-lg"
-             (click)="deleteBreakfast(i)"></i>
-        </span>
-      </li>
-      <li *ngIf="breakfasts.length < 7"
-          class="list-group-item add center"
-          (click)="addBreakfast()">
-        Add Item <i class="fas fa-plus fa-lg"></i>
-      </li>
-    </ul>
-  </div>
-  <div class="meal">
-    <div class="meal-header">
-      <h2>Lunch</h2>
-      <div class="modify">
-        <i *ngIf="lunches.length == 0"
-           class="fas fa-plus fa-lg"
-           (click)="onClickGenerateLunches()"
-           title="Generate lunches">
-        </i>
-        <i *ngIf="lunches.length > 0"
-           class="fas fa-arrow-rotate-right fa-lg"
-           (click)="onClickGenerateLunches()"
-           title="Re-generate lunches">
-        </i>
-      </div>
-    </div>
-    <ul class="list-group">
-      <li *ngFor="let lunch of lunches; let i = index;"
-          class="list-group-item recipe-item">
-        {{lunch.name}}
-        <span class="modify">
-          <i class="fa-solid fa-arrow-rotate-right fa-lg"
-             (click)="replaceLunch(i)"></i>
-          <i class="fa-solid fa-trash fa-lg"
-             (click)="deleteLunch(i)"></i>
-        </span>
-      </li>
-      <li *ngIf="lunches.length < 7"
-          class="list-group-item add"
-          (click)="addLunch()">
-        Add Item <i class="fas fa-plus fa-lg"></i>
-      </li>
-    </ul>
-  </div>
-  <div class="meal">
-    <div class="meal-header">
-      <h2>Dinner</h2>
-      <div class="modify">
-        <i *ngIf="dinners.length == 0"
-           class="fas fa-plus fa-lg"
-           (click)="onClickGenerateDinners()"
-           title="Generate dinners">
-        </i>
-        <i *ngIf="dinners.length > 0"
-           class="fas fa-arrow-rotate-right fa-lg"
-           (click)="onClickGenerateDinners()"
-           title="Re-generate dinners">
-        </i>
-      </div>
-    </div>
-    <ul class="list-group">
-      <li *ngFor="let dinner of dinners; let i = index;"
-          class="list-group-item recipe-item">
-        {{dinner.name}}
-        <span class="modify">
-          <i class="fa-solid fa-arrow-rotate-right fa-lg"
-             (click)="replaceDinner(i)"></i>
-          <i class="fa-solid fa-trash fa-lg"
-             (click)="deleteDinner(i)"></i>
-        </span>
-      </li>
-      <li *ngIf="dinners.length < 7"
-          class="list-group-item add"
-          (click)="addDinner()">
-        Add Item <i class="fas fa-plus fa-lg"></i>
-      </li>
-    </ul>
-  </div>
+  <app-plan-meal name="Breakfast"
+                 [recipes]="breakfasts"
+                 (generateRecipesEvent)="onClickGenerateBreakfasts()"
+                 (deleteAllRecipesEvent)="onClickDeleteAllBreakfasts()"
+                 (deleteRecipeEvent)="deleteBreakfast($event)"
+                 (replaceRecipeEvent)="replaceBreakfast($event)"
+                 (addRecipeEvent)="addBreakfast()">
+  </app-plan-meal>
+  <app-plan-meal name="Lunch"
+                 [recipes]="lunches"
+                 (generateRecipesEvent)="onClickGenerateLunches()"
+                 (deleteAllRecipesEvent)="onClickDeleteAllLunches()"
+                 (deleteRecipeEvent)="deleteLunch($event)"
+                 (replaceRecipeEvent)="replaceLunch($event)"
+                 (addRecipeEvent)="addLunch()">
+  </app-plan-meal>
+  <app-plan-meal name="Dinner"
+                 [recipes]="dinners"
+                 (generateRecipesEvent)="onClickGenerateDinners()"
+                 (deleteAllRecipesEvent)="onClickDeleteAllDinners()"
+                 (deleteRecipeEvent)="deleteDinner($event)"
+                 (replaceRecipeEvent)="replaceDinner($event)"
+                 (addRecipeEvent)="addDinner()">
+  </app-plan-meal>
 </div>
-
 <div (click)="onClickGenerate()"
      class="fab"
      title="Generate Meals">

@@ -1,0 +1,40 @@
+
+<div class="meal">
+  <div class="meal-header">
+    <h2>{{name}}</h2>
+    <div class="modify">
+      <i *ngIf="recipes.length == 0"
+         class="fas fa-plus fa-lg"
+         (click)="generate()"
+         title="Generate">
+      </i>
+      <i *ngIf="recipes.length > 0"
+         class="fas fa-trash fa-lg"
+         (click)="deleteAll()"
+         title="Remove all">
+      </i>
+      <i *ngIf="recipes.length > 0"
+         class="fas fa-arrow-rotate-right fa-lg"
+         (click)="generate()"
+         title="Re-generate">
+      </i>
+    </div>
+  </div>
+  <ul class="list-group">
+    <li *ngFor="let recipe of recipes; let i = index;"
+        class="list-group-item">
+      {{recipe.name}}
+      <div class="modify">
+        <i class="fa-solid fa-trash fa-lg"
+           (click)="delete(i)"></i>
+        <i class="fa-solid fa-arrow-rotate-right fa-lg"
+           (click)="replace(i)"></i>
+      </div>
+    </li>
+    <li *ngIf="recipes.length < 7"
+        class="list-group-item add center"
+        (click)="add()">
+      Add Item <i class="fas fa-plus fa-lg"></i>
+    </li>
+  </ul>
+</div>

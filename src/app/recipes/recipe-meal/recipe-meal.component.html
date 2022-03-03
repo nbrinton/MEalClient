@@ -1,0 +1,16 @@
+
+<div class="meal">
+  <div class="meal-header">
+    <h2>{{name}}</h2>
+  </div>
+  <ul class="list-group">
+    <li *ngFor="let recipe of recipes"
+        class="list-group-item">
+      {{recipe.name}}
+    </li>
+    <li *ngIf="recipes.length == 0"
+        class="list-group-item disabled">
+      Nothing here yet
+    </li>
+  </ul>
+</div>

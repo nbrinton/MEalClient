@@ -9,6 +9,9 @@ import { PlanComponent } from './plan/plan.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { AddRecipeComponent } from './forms/add-recipe/add-recipe.component';
+import { RecipeMealComponent } from './recipes/recipe-meal/recipe-meal.component';
+import { PlanMealComponent } from './plan/plan-meal/plan-meal.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { RecipesComponent } from './recipes/recipes.component';
     PlanComponent,
     PageNotFoundComponent,
     HeaderComponent,
-    RecipesComponent
+    RecipesComponent,
+    AddRecipeComponent,
+    RecipeMealComponent,
+    PlanMealComponent
   ],
   imports: [
     BrowserModule,

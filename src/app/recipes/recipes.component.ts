@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../models/recipe';
 import { GenerateMealsService } from '../services/generate-meals.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddRecipeComponent } from '../forms/add-recipe/add-recipe.component';
 
 @Component({
   selector: 'app-recipes',
@@ -8,13 +10,12 @@ import { GenerateMealsService } from '../services/generate-meals.service';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-
-
   breakfasts: Recipe[] = [];
   lunches: Recipe[] = [];
   dinners: Recipe[] = [];
 
   constructor(
+    private modalService: NgbModal,
     private generateMealsService: GenerateMealsService
   ) { }
 
@@ -25,7 +26,8 @@ export class RecipesComponent implements OnInit {
   }
 
   onClickAddRecipe() {
-
+    const modalRef = this.modalService.open(AddRecipeComponent);
+    modalRef.componentInstance.name = 'World';
   }
 
 }
