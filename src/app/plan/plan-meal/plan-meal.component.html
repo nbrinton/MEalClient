@@ -1,20 +1,29 @@
-
 <div class="meal">
   <div class="meal-header">
     <h2>{{name}}</h2>
-    <div class="modify">
-      <i *ngIf="recipes.length == 0"
-         class="fas fa-plus fa-lg"
+    <div *ngIf="!disableToggle" class="meal-toggles">
+      <label class="switch" title="Allow Duplicates">
+        <input type="checkbox"
+               [checked]="allowDuplicateRecipes"
+               (change)="toggleAllowDuplicateRecipes()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div *ngIf="recipes.length == 0" class="modify">
+      <i class="fas fa-plus fa-lg"
          (click)="generate()"
-         title="Generate">
+         title="Generate All">
       </i>
-      <i *ngIf="recipes.length > 0"
-         class="fas fa-trash fa-lg"
+    </div>
+    <div *ngIf="recipes.length > 0" class="modify">
+      <i class="fa-solid fa-copy fa-lg"
+         (click)="copyIngredientsToClipboard()"
+         title="Copy ingredients to clipboard"></i>
+      <i class="fas fa-trash fa-lg"
          (click)="deleteAll()"
          title="Remove all">
       </i>
-      <i *ngIf="recipes.length > 0"
-         class="fas fa-arrow-rotate-right fa-lg"
+      <i class="fas fa-arrow-rotate-right fa-lg"
          (click)="generate()"
          title="Re-generate">
       </i>

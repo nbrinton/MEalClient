@@ -1,7 +1,22 @@
+@import '../../scss/index';
 
 :host {
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  background-color: $app-background-color;
+}
+
+#generate-grocery-list-fab {
+  bottom: 80px;
+  right: 10px;
+  background-color: $app-secondary-color;
+
+  &:hover {
+    background-color: lighten($app-secondary-color, 5%);
+  }
+}
+
+#generate-meals-fab {
+  bottom: 10px;
+  right: 10px;
 }

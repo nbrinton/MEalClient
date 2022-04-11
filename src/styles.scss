@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+// You can add global styles to this file, and also import other style files
+
+// Importing Bootstrap SCSS file.
+@import '~bootstrap/scss/bootstrap';
+
 @import './scss/index';
 
 html, body {
@@ -21,10 +25,7 @@ div, p, ul, li {
 
 .fab {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
   cursor: pointer;
-
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -82,7 +83,7 @@ div, p, ul, li {
 
 .meal {
   display: inline-block;
-  padding:10px;
+  padding: 10px;
   list-style: none;
   background-color: lighten($app-background-color, 2%);
   min-width: 300px;
@@ -130,15 +131,26 @@ div, p, ul, li {
   }
 
   .list-group {
-      background-color: lighten($app-background-color, 2%);
+    background-color: lighten($app-background-color, 2%);
 
     .list-group-item {
       display: flex;
       align-items: center;
       background-color: lighten($app-background-color, 2%);
+      color: white;
+
+      a {
+        height: 100%;
+        width: 100%;
+        color: white;
+        text-decoration: none;
+      }
 
       .modify {
         visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       &:hover {
@@ -164,3 +176,65 @@ div, p, ul, li {
     }
   }
 }
+
+// Slide-toggle button
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: $app-secondary-color;
+    }
+
+    &:focus + .slider {
+      box-shadow: 0 0 1px $app-secondary-color;
+    }
+
+    &:checked + .slider:before {
+      -webkit-transform: translateX(20px);
+      -ms-transform: translateX(20px);
+      transform: translateX(20px);
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      //left: 4px;
+      //bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    // Rounded sliders
+    &.round {
+      border-radius: 20px;
+
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+

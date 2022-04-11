@@ -1,47 +1,685 @@
 [
   {
     "id": 0,
-    "name": "Spaghetti"
+    "name": "Spaghetti",
+    "ingredients": [
+      {
+        "name": "Fettuccine Noodles",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Pasta",
+        "staple": false
+      },
+      {
+        "name": "Stewed Tomatoes",
+        "quantity": 28,
+        "units": "oz",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Crushed Tomatoes",
+        "quantity": 28,
+        "units": "oz",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Ground Beef",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Yellow Onion",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Garlic",
+        "quantity": 5,
+        "units": "cloves",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "White Sugar",
+        "quantity": 1,
+        "units": "tbsp",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Dried Basil",
+        "quantity": 1,
+        "units": "tbsp",
+        "section": "Spices",
+        "staple": false
+      },
+      {
+        "name": "Dried Oregano",
+        "quantity": 0.5,
+        "units": "tsp",
+        "section": "Spices",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 1,
-    "name": "Red Chili"
+    "name": "Red Chili",
+    "ingredients": [
+      {
+        "name": "Kidney Beans",
+        "quantity": 2,
+        "units": "cans",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Tomato Sauce",
+        "quantity": 1,
+        "units": "cans",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Chili Seasoning",
+        "quantity": 1,
+        "units": "bag",
+        "section": "Spices",
+        "staple": false
+      },
+      {
+        "name": "Yellow Onion",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "Green Chili"
+    "name": "Green Chili",
+    "ingredients": [
+      {
+        "name": "Great Northern Beans",
+        "quantity": 2,
+        "units": "cans",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Canned Corn",
+        "quantity": 1,
+        "units": "cans",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Chicken Broth",
+        "quantity": 1,
+        "units": "cans",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Salsa Verde",
+        "quantity": 16,
+        "units": "oz",
+        "section": "Hispanic",
+        "staple": false
+      },
+      {
+        "name": "Chicken Thighs",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "All-purpose Flour",
+        "quantity": 3,
+        "units": "tbsp",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Cumin",
+        "quantity": 2,
+        "units": "tsp",
+        "section": "Spices",
+        "staple": false
+      },
+      {
+        "name": "Yellow Onion",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 3,
-    "name": "Pesto"
+    "name": "Pesto",
+    "ingredients": [
+      {
+        "name": "Farfalle Pasta",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Pasta",
+        "staple": false
+      },
+      {
+        "name": "Fresh Basil",
+        "quantity": 1,
+        "units": "container",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Garlic",
+        "quantity": 3,
+        "units": "cloves",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Parmesan",
+        "quantity": 0.66,
+        "units": "cups",
+        "section": "Deli",
+        "staple": false
+      },
+      {
+        "name": "Olive Oil",
+        "quantity": 0.125,
+        "units": "cups",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Pine Nuts",
+        "quantity": 0.33,
+        "units": "cups",
+        "section": "Bulk",
+        "staple": false
+      },
+      {
+        "name": "No-salt Seasoning",
+        "quantity": 3,
+        "units": "tbsp",
+        "section": "Spices",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 4,
-    "name": "Fettuccine Alfredo"
+    "name": "Fettuccine Alfredo",
+    "ingredients": [
+      {
+        "name": "Fettuccine Pasta",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Pasta",
+        "staple": false
+      },
+      {
+        "name": "Butter",
+        "quantity": 6,
+        "units": "tbsp",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Garlic",
+        "quantity": 1,
+        "units": "cloves",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Heavy Whipping Cream",
+        "quantity": 1.5,
+        "units": "cups",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Parmesan",
+        "quantity": 1.25,
+        "units": "cups",
+        "section": "Deli",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 5,
-    "name": "Fried Chicken"
+    "name": "Air-Fried Chicken",
+    "ingredients": [
+      {
+        "name": "All-purpose Flour",
+        "quantity": 0.5,
+        "units": "cups",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Eggs",
+        "quantity": 1,
+        "units": "egg",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Chicken Thighs",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 6,
-    "name": "Chicken & Roasted Potatoes"
+    "name": "Chicken & Roasted Potatoes",
+    "ingredients": [
+      {
+        "name": "Chicken Thighs",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Russet Potatoes",
+        "quantity": 2,
+        "units": "lb",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Frozen Vegetable Mix",
+        "quantity": 1,
+        "units": "bag",
+        "section": "Freezer",
+        "staple": false
+      },
+      {
+        "name": "Stubs Chicken Rub",
+        "quantity": 3,
+        "units": "tbsp",
+        "section": "Spices",
+        "staple": false
+      },
+      {
+        "name": "Montreal Steak Seasoning",
+        "quantity": 3,
+        "units": "tbsp",
+        "section": "Spices",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 7,
-    "name": "Philly Cheesesteak Sandwiches"
+    "name": "Philly Cheesesteak Sandwiches",
+    "ingredients": [
+      {
+        "name": "Steak (chuck, stir-fry, etc.)",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Yoshida Sauce",
+        "quantity": 1,
+        "units": "cups",
+        "section": "Asian",
+        "staple": false
+      },
+      {
+        "name": "Bell Peppers",
+        "quantity": 3,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Yellow Onion",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "All-purpose Flour",
+        "quantity": 3,
+        "units": "tbsp",
+        "section": "Baking",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 8,
-    "name": "Chicken & Dumplings"
+    "name": "Chicken & Dumplings",
+    "ingredients": [
+      {
+        "name": "Chicken Thighs",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Garlic",
+        "quantity": 1,
+        "units": "cloves",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Yellow Onion",
+        "quantity": 0.25,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "No-salt Seasoning",
+        "quantity": 1,
+        "units": "tbsp",
+        "section": "Spices",
+        "staple": false
+      },
+      {
+        "name": "Butter",
+        "quantity": 6,
+        "units": "tbsp",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Corn Starch",
+        "quantity": 2,
+        "units": "tbsp",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Chicken Broth",
+        "quantity": 6,
+        "units": "cups",
+        "section": "Canned Goods",
+        "staple": false
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": 2,
+        "units": "tsp",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Milk",
+        "quantity": 0.75,
+        "units": "cups",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "All-purpose Flour",
+        "quantity": 2,
+        "units": "cups",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Sugar",
+        "quantity": 2,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Salt",
+        "quantity": 0.5,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Baking Soda",
+        "quantity": 0.5,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 9,
-    "name": "Burgers & Fries"
+    "name": "Burgers & Fries",
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Bacon",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Sliced Cheddar",
+        "quantity": 1,
+        "units": "package",
+        "section": "Deli",
+        "staple": false
+      },
+      {
+        "name": "Buns",
+        "quantity": 1,
+        "units": "package",
+        "section": "Deli",
+        "staple": false
+      },
+      {
+        "name": "Iceberg Lettuce",
+        "quantity": 1,
+        "units": "head",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Heirloom Tomato",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Yellow Onion",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 10,
-    "name": "Chow Mein & Beijing Beef"
+    "name": "Chow Mein & Beijing Beef",
+    "ingredients": [
+      {
+        "name": "Steak (flank, etc.)",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Garlic",
+        "quantity": 6,
+        "units": "cloves",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Yellow Onion",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Bell Peppers",
+        "quantity": 1,
+        "units": "big",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Cornstarch",
+        "quantity": 0.25,
+        "units": "cups",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Salt",
+        "quantity": 0.25,
+        "units": "tsp",
+        "section": "Spices",
+        "staple": false
+      },
+      {
+        "name": "Eggs",
+        "quantity": 3,
+        "units": "egg",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Sugar",
+        "quantity": 0.25,
+        "units": "cups",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Ketchup",
+        "quantity": 3,
+        "units": "tbsp",
+        "section": "Condiments",
+        "staple": false
+      },
+      {
+        "name": "Hoisin Sauce",
+        "quantity": 6,
+        "units": "tbsp",
+        "section": "Asian",
+        "staple": false
+      },
+      {
+        "name": "Soy Sauce",
+        "quantity": 1,
+        "units": "tbsp",
+        "section": "Asian",
+        "staple": false
+      },
+      {
+        "name": "Oyster Sauce",
+        "quantity": 2,
+        "units": "tsp",
+        "section": "Asian",
+        "staple": false
+      },
+      {
+        "name": "Sweet Chili Sauce",
+        "quantity": 4,
+        "units": "tsp",
+        "section": "Asian",
+        "staple": false
+      },
+      {
+        "name": "Crushed Red Peppers",
+        "quantity": 1,
+        "units": "tbsp",
+        "section": "Spices",
+        "staple": false
+      },
+      {
+        "name": "Apple Cider Vinegar",
+        "quantity": 2,
+        "units": "tbsp",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Green Cabbage",
+        "quantity": 4,
+        "units": "cups",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Peanut Oil",
+        "quantity": 1.5,
+        "units": "tbsp",
+        "section": "Baking",
+        "staple": false
+      },
+      {
+        "name": "Chow Mein Noodles",
+        "quantity": 1,
+        "units": "package",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Carrot",
+        "quantity": 1,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Bean Sprouts",
+        "quantity": 1.5,
+        "units": "cups",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Green Onions",
+        "quantity": 3,
+        "units": "large",
+        "section": "Produce",
+        "staple": false
+      },
+      {
+        "name": "Sesame Oil",
+        "quantity": 0.5,
+        "units": "tsp",
+        "section": "Asian",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 11,

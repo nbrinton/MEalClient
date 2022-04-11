@@ -1,18 +1,32 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import breakfasts from './mock-data/breakfasts.json';
 import lunches from './mock-data/lunches.json';
 import dinners from './mock-data/dinners.json';
-import { Recipe } from "../models/recipe";
+import {Recipe} from '../models/recipe';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GenerateMealsService {
 
-  constructor() { }
+  constructor() {
+  }
 
   getAllBreakfasts(): Recipe[] {
     return breakfasts;
+  }
+
+  getNumBreakfasts(): number {
+    return breakfasts.length;
+  }
+
+  getNumLunches(): number {
+    return lunches.length;
+  }
+
+  getNumDinners(): number {
+    return dinners.length;
   }
 
   getAllLunches(): Recipe[] {
@@ -23,28 +37,43 @@ export class GenerateMealsService {
     return dinners;
   }
 
-  generateBreakfasts(): Recipe[] {
-    let chosenBreakfasts = [];
+  generateBreakfasts(allowDuplicates: boolean = true): Recipe[] {
+    let chosenBreakfasts: any = [];
     for (let i = 0; i < 7; i++) {
-      chosenBreakfasts.push(this.getRandomEntry(breakfasts));
+      let breakfast = this.getRandomEntry(breakfasts);
+
+      while (!allowDuplicates && chosenBreakfasts.includes(breakfast)) {
+        breakfast = this.getRandomEntry(breakfasts);
+      }
+      chosenBreakfasts.push(breakfast);
     }
 
     return chosenBreakfasts;
   }
 
-  generateLunches(): Recipe[] {
-    let chosenLunches = [];
+  generateLunches(allowDuplicates: boolean = true): Recipe[] {
+    let chosenLunches: any = [];
     for (let i = 0; i < 7; i++) {
-      chosenLunches.push(this.getRandomEntry(lunches));
+      let lunch = this.getRandomEntry(lunches);
+
+      while (!allowDuplicates && chosenLunches.includes(lunch)) {
+        lunch = this.getRandomEntry(lunches);
+      }
+      chosenLunches.push(lunch);
     }
 
     return chosenLunches;
   }
 
-  generateDinners(): Recipe[] {
-    let chosenDinners = [];
+  generateDinners(allowDuplicates: boolean = false): Recipe[] {
+    let chosenDinners: any = [];
     for (let i = 0; i < 7; i++) {
-      chosenDinners.push(this.getRandomEntry(dinners));
+      let dinner = this.getRandomEntry(dinners);
+
+      while (!allowDuplicates && _.includes(chosenDinners, dinner)) {
+        dinner = this.getRandomEntry(dinners);
+      }
+      chosenDinners.push(dinner);
     }
 
     return chosenDinners;

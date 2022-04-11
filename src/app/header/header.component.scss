@@ -1,36 +1,71 @@
 @import '../../scss/index';
 
-.nav-tabs {
-  list-style: none;
+.navbar {
   background-color: $app-secondary-color;
-  border-bottom: none;
+  padding: 0;
 
-  li {
-    border: none;
-    border-radius: 0;
-    min-width: 120px;
-    text-align: center;
-    background-color: $app-secondary-color;
+  .navbar-brand {
+    font-size: 50px;
+    font-weight: bold;
+    padding: 0 20px 0 20px;
+    color: $app-primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 
-    &:hover:not(.active) {
-      background-color: darken($app-secondary-color, 5%);
+    &:hover {
+      color: $app-primary-color;
     }
 
     a {
-      color: $app-background-color;
-      font-size: 20px;
+      text-decoration: none;
     }
+  }
 
-    .nav-link {
+  .nav-tabs {
+    list-style: none;
+    background-color: $app-secondary-color;
+    border-bottom: none;
+
+    li {
       border: none;
       border-radius: 0;
-      margin: 0;
+      min-width: 120px;
+      text-align: center;
+      background-color: $app-secondary-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      &.active {
-        background-color: $app-background-color;
-        color: $app-secondary-color;
+      &:hover:not(.active) {
+        background-color: darken($app-secondary-color, 5%);
+      }
+
+      a {
+        color: $app-background-color;
+        font-size: 20px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          margin-right: 5px;
+        }
+      }
+
+      .nav-link {
         border: none;
-        font-weight: bold;
+        border-radius: 0;
+
+        &.active {
+          background-color: $app-background-color;
+          color: $app-secondary-color;
+          border: none;
+          font-weight: bold;
+        }
       }
     }
   }
