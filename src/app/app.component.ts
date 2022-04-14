@@ -1,21 +1,26 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public forecasts?: WeatherForecast[];
 
-  constructor(http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+  ) {
     // http.get<WeatherForecast[]>('/weatherforecast').subscribe(result => {
     //   this.forecasts = result;
     // }, error => console.error(error));
   }
 
   title = 'MEal';
+
+  ngOnInit(): void {
+  }
 }
 
 interface WeatherForecast {

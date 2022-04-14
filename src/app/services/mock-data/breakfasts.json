@@ -1,35 +1,226 @@
 [
   {
     "id": 0,
-    "name": "Bacon & Eggs"
+    "name": "Bacon & Eggs",
+    "ingredients": [
+      {
+        "name": "Bacon",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Eggs",
+        "quantity": 1,
+        "units": "carton",
+        "section": "Dairy",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 1,
-    "name": "Pancakes"
+    "name": "Pancakes",
+    "ingredients": [
+      {
+        "name": "All-purpose Flour",
+        "quantity": 2,
+        "units": "cups",
+        "section": "Baking",
+        "staple": true
+      },
+      {
+        "name": "Milk",
+        "quantity": 2,
+        "units": "cups",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Eggs",
+        "quantity": 4,
+        "units": "egg",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Vanilla Extract",
+        "quantity": 0.5,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": true
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "Waffles"
+    "name": "Waffles",
+    "ingredients": [
+      {
+        "name": "Vanilla Extract",
+        "quantity": 0.5,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": true
+      }
+    ]
   },
   {
     "id": 3,
-    "name": "French Toast"
+    "name": "French Toast",
+    "ingredients": [
+      {
+        "name": "White Bread",
+        "quantity": 6,
+        "units": "slices",
+        "section": "Bakery",
+        "staple": false
+      },
+      {
+        "name": "Milk",
+        "quantity": 0.66,
+        "units": "cups",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Eggs",
+        "quantity": 2,
+        "units": "egg",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Vanilla Extract",
+        "quantity": 1,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": true
+      },
+      {
+        "name": "Ground Cinnamon",
+        "quantity": 0.25,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": true
+      }
+    ]
   },
   {
     "id": 4,
-    "name": "Breakfast Burritos"
+    "name": "Breakfast Burritos",
+    "ingredients": [
+      {
+        "name": "Bacon",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Meats",
+        "staple": false
+      },
+      {
+        "name": "Eggs",
+        "quantity": 3,
+        "units": "egg",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Tortillas",
+        "quantity": 2,
+        "units": "tortilla",
+        "section": "Hispanic",
+        "staple": false
+      },
+      {
+        "name": "Mexican Cheese Blend",
+        "quantity": 0.5,
+        "units": "cup",
+        "section": "Deli",
+        "staple": false
+      },
+      {
+        "name": "Hashbrowns",
+        "quantity": 0.5,
+        "units": "package",
+        "section": "Frozen Goods",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 5,
-    "name": "Cereal"
+    "name": "Cereal",
+    "ingredients": [
+      {
+        "name": "Cereal",
+        "quantity": 1,
+        "units": "box",
+        "section": "Cereal",
+        "staple": false
+      },
+      {
+        "name": "Milk",
+        "quantity": 0.5,
+        "units": "cup",
+        "section": "Milk",
+        "staple": true
+      }
+    ]
   },
   {
     "id": 6,
-    "name": "Yogurt & Banana"
+    "name": "Yogurt & Banana",
+    "ingredients": [
+      {
+        "name": "Lala Yogurt",
+        "quantity": 1,
+        "units": "package",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Bananas",
+        "quantity": 1,
+        "units": "bunch",
+        "section": "Produce",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 7,
-    "name": "Crepes"
+    "name": "Crepes",
+    "ingredients": [
+      {
+        "name": "All-purpose Flour",
+        "quantity": 2,
+        "units": "cups",
+        "section": "Baking",
+        "staple": true
+      },
+      {
+        "name": "Milk",
+        "quantity": 2,
+        "units": "cups",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Eggs",
+        "quantity": 4,
+        "units": "egg",
+        "section": "Dairy",
+        "staple": false
+      },
+      {
+        "name": "Vanilla Extract",
+        "quantity": 0.5,
+        "units": "tsp",
+        "section": "Baking",
+        "staple": true
+      }
+    ]
   },
   {
     "id": 8,

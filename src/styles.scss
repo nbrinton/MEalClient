@@ -12,11 +12,6 @@ html, body {
   width: 100%;
 }
 
-div, p, ul, li {
-  background-color: $app-background-color;
-  color: white;
-}
-
 .center {
   display: flex;
   justify-content: center;

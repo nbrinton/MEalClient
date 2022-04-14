@@ -4,6 +4,7 @@ import lunches from './mock-data/lunches.json';
 import dinners from './mock-data/dinners.json';
 import {Recipe} from '../models/recipe';
 import * as _ from 'lodash';
+import {Ingredient} from '../models/ingredient';
 
 @Injectable({
   providedIn: 'root'
@@ -98,4 +99,62 @@ export class GenerateMealsService {
   getRandomEntry(list: any[]): any {
     return list[this.getRandomInt(list.length)];
   }
+
+  // TODO: Fix bug where some ingredients are incorrectly incremented every time you click the copy button
+  checkIngredientsAndUpdateQuantity(ingredients: Ingredient[], ingredient: Ingredient) {
+    for (let i of ingredients) {
+      if (i.name === ingredient.name) {
+        if (i.units === ingredient.units) {
+          i.quantity += ingredient.quantity;
+          return;
+        } else {
+          ingredients.push(ingredient);
+          return;
+        }
+      }
+    }
+
+    ingredients.push(ingredient);
+  }
+
+  copyIngredientsToClipboard(recipes: Recipe[]): string {
+    let ingredientsString = '';
+    let ingredients: Ingredient[] = [];
+
+    recipes.forEach(r => {
+      if (r.ingredients) {
+        r.ingredients.forEach(i => {
+          this.checkIngredientsAndUpdateQuantity(ingredients, i);
+        });
+      }
+    });
+
+    // Sort the ingredients by their section then by their name
+    ingredients.sort((a: Ingredient, b: Ingredient) => {
+      if (a.section < b.section) {
+        return -1;
+      } else if (a.section === b.section) {
+        if (a.name[0] < b.name[0]) {
+          return -1;
+        } else if (a.name[0] > b.name[0]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else {
+        return 1;
+      }
+    });
+    let nextSection = ingredients[1].section;
+    ingredients.forEach(i => {
+      if (i.section !== nextSection) {
+        ingredientsString += `\n${i.section}\n--------------------\n`;
+        nextSection = i.section;
+      }
+      ingredientsString += `- ${i.name} (${i.quantity} ${i.units})\n`;
+    });
+
+    return ingredientsString;
+  }
+
 }

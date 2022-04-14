@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../models/recipe';
 import {GenerateMealsService} from '../services/generate-meals.service';
 import * as _ from 'lodash';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-plan',
@@ -23,6 +24,7 @@ export class PlanComponent implements OnInit {
   disableDinnerToggle: boolean = false;
 
   constructor(
+    private toastr: ToastrService,
     private generateMealsService: GenerateMealsService
   ) {
   }
@@ -49,7 +51,14 @@ export class PlanComponent implements OnInit {
   }
 
   onClickGenerateGroceryList() {
+    let recipes: Recipe[] = [];
+    recipes = recipes.concat(this.breakfasts);
+    recipes = recipes.concat(this.lunches);
+    recipes = recipes.concat(this.dinners);
+    let ingredientsString: string = this.generateMealsService.copyIngredientsToClipboard(recipes);
 
+    navigator.clipboard.writeText(ingredientsString);
+    this.toastr.success('Copied ingredients to clipboard!', undefined, { closeButton: true, timeOut: 1500 });
   }
 
   // TODO: Refactor to reduce duplicate code. Maybe using an enum for the meal?

@@ -1,11 +1,43 @@
 [
   {
     "id": 0,
-    "name": "Deli Sandwich"
+    "name": "Deli Sandwich",
+    "ingredients": [
+      {
+        "name": "Deli Sandwich",
+        "quantity": 1,
+        "units": "sandwich",
+        "section": "BDeli",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 1,
-    "name": "Croissandwich"
+    "name": "Croissandwich",
+    "ingredients": [
+      {
+        "name": "Croissants",
+        "quantity": 1,
+        "units": "package",
+        "section": "Bakery",
+        "staple": false
+      },
+      {
+        "name": "Sliced Cheddar Cheese",
+        "quantity": 1,
+        "units": "package",
+        "section": "Deli",
+        "staple": false
+      },
+      {
+        "name": "Sweet Smoked Ham",
+        "quantity": 1,
+        "units": "lb",
+        "section": "Deli",
+        "staple": false
+      }
+    ]
   },
   {
     "id": 2,

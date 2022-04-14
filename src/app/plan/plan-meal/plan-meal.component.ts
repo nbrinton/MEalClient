@@ -1,9 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Recipe} from '../../models/recipe';
-import {add, replace} from "lodash";
-import {generate} from "rxjs";
-import {Ingredient} from '../../models/ingredient';
-import * as _ from 'lodash';
+import {ToastrService} from 'ngx-toastr';
+import {GenerateMealsService} from '../../services/generate-meals.service';
 
 @Component({
   selector: 'app-plan-meal',
@@ -25,68 +23,19 @@ export class PlanMealComponent implements OnInit {
   @Output() replaceRecipeEvent = new EventEmitter<number>();
   @Output() addRecipeEvent = new EventEmitter<boolean>();
 
-  constructor() {
+  constructor(
+    private toastr: ToastrService,
+    private gms: GenerateMealsService
+  ) {
   }
 
   ngOnInit(): void {
   }
 
   copyIngredientsToClipboard() {
-    let ingredientsString = '';
-    let ingredients: Ingredient[] = [];
-
-    this.recipes.forEach(r => {
-      if (r.ingredients) {
-        r.ingredients.forEach(i => {
-          this.checkIngredientsAndUpdateQuantity(ingredients, i);
-        });
-      }
-    });
-
-    // Sort the ingredients by their section then by their name
-    ingredients.sort((a: Ingredient, b: Ingredient) => {
-      if (a.section < b.section) {
-        return -1;
-      } else if (a.section === b.section) {
-        if (a.name[0] < b.name[0]) {
-          return -1;
-        } else if (a.name[0] > b.name[0]) {
-          return 1;
-        } else {
-          return 0;
-        }
-      } else {
-        return 1;
-      }
-    }).forEach(i => {
-      ingredientsString += `- ${i.name} (${i.quantity} ${i.units})\n`;
-    });
-
-    navigator.clipboard.writeText(ingredientsString).then(
-      // TODO: Create toast message
-    );
-  }
-
-  /**
-   * Check the ingredient list to see if it already contains the given ingredient. If it does, then if the units match,
-   * update the quantity. If not, then add the ingredient to the list.
-   * @param ingredients
-   * @param ingredient
-   */
-  checkIngredientsAndUpdateQuantity(ingredients: Ingredient[], ingredient: Ingredient) {
-    for (let i of ingredients) {
-      if (i.name === ingredient.name) {
-        if (i.units === ingredient.units) {
-          i.quantity += ingredient.quantity;
-          return;
-        } else {
-          ingredients.push(ingredient);
-          return;
-        }
-      }
-    }
-
-    ingredients.push(ingredient);
+    let ingredientsString: string = this.gms.copyIngredientsToClipboard(this.recipes);
+    navigator.clipboard.writeText(ingredientsString);
+    this.toastr.success('Copied ingredients to clipboard!', undefined, { closeButton: true, timeOut: 1500 });
   }
 
   generate() {
