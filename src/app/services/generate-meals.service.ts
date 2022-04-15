@@ -100,7 +100,6 @@ export class GenerateMealsService {
     return list[this.getRandomInt(list.length)];
   }
 
-  // TODO: Fix bug where some ingredients are incorrectly incremented every time you click the copy button
   checkIngredientsAndUpdateQuantity(ingredients: Ingredient[], ingredient: Ingredient) {
     for (let i of ingredients) {
       if (i.name === ingredient.name) {
@@ -108,29 +107,29 @@ export class GenerateMealsService {
           i.quantity += ingredient.quantity;
           return;
         } else {
-          ingredients.push(ingredient);
+          ingredients.push(_.cloneDeep(ingredient));
           return;
         }
       }
     }
 
-    ingredients.push(ingredient);
+    ingredients.push(_.cloneDeep(ingredient));
   }
 
   copyIngredientsToClipboard(recipes: Recipe[]): string {
     let ingredientsString = '';
-    let ingredients: Ingredient[] = [];
+    let allIngredients: Ingredient[] = [];
 
     recipes.forEach(r => {
       if (r.ingredients) {
         r.ingredients.forEach(i => {
-          this.checkIngredientsAndUpdateQuantity(ingredients, i);
+          this.checkIngredientsAndUpdateQuantity(allIngredients, i);
         });
       }
     });
 
     // Sort the ingredients by their section then by their name
-    ingredients.sort((a: Ingredient, b: Ingredient) => {
+    allIngredients.sort((a: Ingredient, b: Ingredient) => {
       if (a.section < b.section) {
         return -1;
       } else if (a.section === b.section) {
@@ -145,13 +144,17 @@ export class GenerateMealsService {
         return 1;
       }
     });
-    let nextSection = ingredients[1].section;
-    ingredients.forEach(i => {
-      if (i.section !== nextSection) {
+    allIngredients = allIngredients.filter(i => !i.staple);
+
+    let previousSection = '';
+    allIngredients.forEach((i, index) => {
+      if (i.section !== previousSection) {
         ingredientsString += `\n${i.section}\n--------------------\n`;
-        nextSection = i.section;
+        previousSection = i.section;
       }
-      ingredientsString += `- ${i.name} (${i.quantity} ${i.units})\n`;
+
+      let quantity = i.quantity % 1 == 0 ? i.quantity.toString() : i.quantity.toFixed(2);
+      ingredientsString += `- ${i.name} (${quantity} ${i.units})\n`;
     });
 
     return ingredientsString;

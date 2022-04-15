@@ -4,7 +4,7 @@
     "name": "Spaghetti",
     "ingredients": [
       {
-        "name": "Fettuccine Noodles",
+        "name": "Fettuccine Pasta",
         "quantity": 1,
         "units": "lb",
         "section": "Pasta",
@@ -43,28 +43,28 @@
         "quantity": 5,
         "units": "cloves",
         "section": "Produce",
-        "staple": false
+        "staple": true
       },
       {
         "name": "White Sugar",
         "quantity": 1,
         "units": "tbsp",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Dried Basil",
         "quantity": 1,
         "units": "tbsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Dried Oregano",
         "quantity": 0.5,
         "units": "tsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       }
     ]
   },
@@ -146,14 +146,14 @@
         "quantity": 3,
         "units": "tbsp",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Cumin",
         "quantity": 2,
         "units": "tsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Yellow Onion",
@@ -187,7 +187,7 @@
         "quantity": 3,
         "units": "cloves",
         "section": "Produce",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Parmesan",
@@ -201,7 +201,7 @@
         "quantity": 0.125,
         "units": "cups",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Pine Nuts",
@@ -215,7 +215,7 @@
         "quantity": 3,
         "units": "tbsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       }
     ]
   },
@@ -235,14 +235,14 @@
         "quantity": 6,
         "units": "tbsp",
         "section": "Dairy",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Garlic",
         "quantity": 1,
         "units": "cloves",
         "section": "Produce",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Heavy Whipping Cream",
@@ -269,7 +269,7 @@
         "quantity": 0.5,
         "units": "cups",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Eggs",
@@ -317,14 +317,14 @@
         "quantity": 3,
         "units": "tbsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Montreal Steak Seasoning",
         "quantity": 3,
         "units": "tbsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       }
     ]
   },
@@ -365,7 +365,7 @@
         "quantity": 3,
         "units": "tbsp",
         "section": "Baking",
-        "staple": false
+        "staple": true
       }
     ]
   },
@@ -385,7 +385,7 @@
         "quantity": 1,
         "units": "cloves",
         "section": "Produce",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Yellow Onion",
@@ -399,35 +399,35 @@
         "quantity": 1,
         "units": "tbsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Butter",
         "quantity": 6,
         "units": "tbsp",
         "section": "Dairy",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Corn Starch",
         "quantity": 2,
         "units": "tbsp",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Chicken Broth",
         "quantity": 6,
         "units": "cups",
         "section": "Canned Goods",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Lemon Juice",
         "quantity": 2,
         "units": "tsp",
         "section": "Produce",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Milk",
@@ -441,28 +441,28 @@
         "quantity": 2,
         "units": "cups",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Sugar",
         "quantity": 2,
         "units": "tsp",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Salt",
         "quantity": 0.5,
         "units": "tsp",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Baking Soda",
         "quantity": 0.5,
         "units": "tsp",
         "section": "Baking",
-        "staple": false
+        "staple": true
       }
     ]
   },
@@ -537,7 +537,7 @@
         "quantity": 6,
         "units": "cloves",
         "section": "Produce",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Yellow Onion",
@@ -558,14 +558,14 @@
         "quantity": 0.25,
         "units": "cups",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Salt",
         "quantity": 0.25,
         "units": "tsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Eggs",
@@ -579,14 +579,14 @@
         "quantity": 0.25,
         "units": "cups",
         "section": "Baking",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Ketchup",
         "quantity": 3,
         "units": "tbsp",
         "section": "Condiments",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Hoisin Sauce",
@@ -621,7 +621,7 @@
         "quantity": 1,
         "units": "tbsp",
         "section": "Spices",
-        "staple": false
+        "staple": true
       },
       {
         "name": "Apple Cider Vinegar",

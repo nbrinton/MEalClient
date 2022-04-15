@@ -7,7 +7,7 @@
         "name": "Deli Sandwich",
         "quantity": 1,
         "units": "sandwich",
-        "section": "BDeli",
+        "section": "Deli",
         "staple": false
       }
     ]
