@@ -1,13 +1,2 @@
 
-<div class="meals">
-  <app-recipe-meal name="Breakfast" [recipes]="breakfasts"></app-recipe-meal>
-  <app-recipe-meal name="Lunch" [recipes]="lunches"></app-recipe-meal>
-  <app-recipe-meal name="Dinner" [recipes]="dinners"></app-recipe-meal>
-</div>
-
-<div id="add-recipe-fab"
-     (click)="onClickAddRecipe()"
-     class="fab"
-     title="Add Recipe">
-  <i class="fas fa-plus fa-lg"></i>
-</div>
+<router-outlet></router-outlet>

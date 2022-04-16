@@ -11,9 +11,12 @@ import { PlanComponent } from './plan/plan.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import { AddRecipeComponent } from './forms/add-recipe/add-recipe.component';
 import { RecipeMealComponent } from './recipes/recipe-meal/recipe-meal.component';
 import { PlanMealComponent } from './plan/plan-meal/plan-meal.component';
+import { ViewRecipesComponent } from './recipes/view-recipes/view-recipes.component';
+import { ViewRecipeComponent } from './recipes/view-recipe/view-recipe.component';
+import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,10 +27,13 @@ import { PlanMealComponent } from './plan/plan-meal/plan-meal.component';
     RecipesComponent,
     AddRecipeComponent,
     RecipeMealComponent,
-    PlanMealComponent
+    PlanMealComponent,
+    ViewRecipesComponent,
+    ViewRecipeComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
@@ -37,4 +43,5 @@ import { PlanMealComponent } from './plan/plan-meal/plan-meal.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

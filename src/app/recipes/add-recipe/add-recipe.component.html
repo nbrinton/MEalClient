@@ -1,0 +1,60 @@
+<h1>Add Recipe</h1>
+<label for="name-field" class="form-label">Name</label>
+<input id="name-field"
+       class="form-control form-control-lg"
+       type="text"
+       [placeholder]="recipeNamePlaceholder"
+       aria-label="name">
+<label for="prep-time-field" class="form-label">Prep Time</label>
+<ngb-timepicker id="prep-time-field" [(ngModel)]="time"></ngb-timepicker>
+<label for="cook-time-field" class="form-label">Cook Time</label>
+<ngb-timepicker id="cook-time-field" [(ngModel)]="time"></ngb-timepicker>
+
+<!-- TODO: Make this dynamic using angular reactive forms: https://angular.io/guide/reactive-forms#creating-dynamic-forms -->
+<h2>Ingredients</h2>
+<label for="ingredient-name-field">Name</label>
+<input id="ingredient-name-field"
+       class="form-control"
+       type="text"
+       placeholder=""
+       aria-label="default input example">
+<label for="ingredient-quantity-field">Quantity</label>
+<input id="ingredient-quantity-field"
+       class="form-control"
+       type="text"
+       placeholder=""
+       aria-label="default input example">
+<label for="ingredient-unit-field">Unit</label>
+<select id="ingredient-unit-field"
+        class="form-select"
+        aria-label="Default select example">
+  <option *ngFor="let unit of units" selected>{{unit}}</option>
+</select>
+<label for="ingredient-section-field">Section</label>
+<select id="ingredient-section-field"
+        class="form-select"
+        aria-label="Default select example">
+  <option *ngFor="let section of sections" selected>{{section}}</option>
+</select>
+<label>Staple</label>
+<label class="switch" title="Staple">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+<button ngbButton class="btn btn-outline-primary">
+  Add Ingredient <i class="fa-solid fa-plus"></i>
+</button>
+
+<h2>Directions</h2>
+
+<div class="mb-3">
+  <label for="step-field" class="form-label">Step text</label>
+  <textarea class="form-control" id="step-field" rows="3"></textarea>
+</div>
+<button ngbButton class="btn btn-outline-primary">
+  Add Step <i class="fa-solid fa-plus"></i>
+</button>
+
+<button ngbButton class="btn btn-outline-primary">
+  Add Recipe <i class="fa-solid fa-plus"></i>
+</button>

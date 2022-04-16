@@ -4,7 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlanComponent } from './plan/plan.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RecipesComponent } from './recipes/recipes.component';
-
+import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
+import { ViewRecipesComponent } from './recipes/view-recipes/view-recipes.component';
+import { ViewRecipeComponent } from './recipes/view-recipe/view-recipe.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,7 @@ const routes: Routes = [
     component: PlanComponent,
     data: {
       name: 'Plan',
-      icon: 'fas fa-house',
+      icon: 'fas fa-house fa-lg',
       nav: true
     }
   },
@@ -26,9 +28,28 @@ const routes: Routes = [
     component: RecipesComponent,
     data: {
       name: 'Recipes',
-      icon: 'fas fa-edit',
+      icon: 'fas fa-edit fa-lg',
       nav: true
-    }
+    },
+    children: [
+      {
+        path: '',
+        redirectTo: 'view',
+        pathMatch: 'full',
+      },
+      {
+        path: 'view',
+        component: ViewRecipesComponent
+      },
+      {
+        path: 'view/:id',
+        component: ViewRecipeComponent
+      },
+      {
+        path: 'add',
+        component: AddRecipeComponent
+      }
+    ]
   },
   {
     path: '**',
@@ -46,4 +67,5 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

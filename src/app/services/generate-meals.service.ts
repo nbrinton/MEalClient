@@ -1,17 +1,25 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import breakfasts from './mock-data/breakfasts.json';
 import lunches from './mock-data/lunches.json';
 import dinners from './mock-data/dinners.json';
-import {Recipe} from '../models/recipe';
+import { Recipe } from '../models/recipe';
 import * as _ from 'lodash';
-import {Ingredient} from '../models/ingredient';
+import { Ingredient } from '../models/ingredient';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GenerateMealsService {
 
+  private readonly _allRecipes: Recipe[] = [];
+  public get allRecipes(): Recipe[] {
+    return _.cloneDeep(this._allRecipes);
+  }
+
   constructor() {
+    this._allRecipes = this._allRecipes.concat(breakfasts);
+    this._allRecipes = this._allRecipes.concat(lunches);
+    this._allRecipes = this._allRecipes.concat(dinners);
   }
 
   getAllBreakfasts(): Recipe[] {
