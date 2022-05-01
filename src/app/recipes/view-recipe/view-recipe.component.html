@@ -1,16 +1,27 @@
 
-<h1>{{recipe.name}}</h1><i class="fa-solid fa-pen-to-square fa-lg"></i>
-<h2>Prep Time: {{prepTime.hours}}:{{prepTime.minutes | number:'2.'}}</h2>
-<h2>Cook Time: {{cookTime.hours}}:{{cookTime.minutes | number:'2.'}}</h2>
-<h2>Ingredients</h2>
-<ul>
-  <li *ngFor="let ri of recipe.recipeIngredients">
-    <p>{{ri.quantity}} {{ri.units}} {{ri.ingredient.name}}
-  </li>
-</ul>
-<h2>Directions</h2>
-<ol>
-  <li *ngFor="let step of recipe.recipeSteps">
-    <p>{{step.content}}</p>
-  </li>
-</ol>
+<div class="content">
+  <div class="recipe-header">
+    <h1>{{recipe.name}}</h1>
+    <i [routerLink]="['/recipes/edit/', recipe.id ]"
+       class="fa-solid fa-pen-to-square fa-xl"
+       title="Edit">
+    </i>
+  </div>
+  <div class="recipe-subheader">
+    <i class="fa-solid fa-stopwatch"></i><h3>Prep Time: {{prepTime.hours}}:{{prepTime.minutes | number:'2.'}}</h3>
+    <i class="fa-solid fa-stopwatch"></i><h3>Cook Time: {{cookTime.hours}}:{{cookTime.minutes | number:'2.'}}</h3>
+  </div>
+  <h2>Ingredients</h2>
+  <i class="fas fa-copy fa-lg" title="Copy to clip-board"></i>
+  <ul>
+    <li *ngFor="let ri of recipe.recipeIngredients">
+      <p>{{ri.quantity}} {{ri.units}} {{ri.ingredient.name}}
+    </li>
+  </ul>
+  <h2>Directions</h2>
+  <ol>
+    <li *ngFor="let step of recipe.recipeSteps">
+      <p>{{step.content}}</p>
+    </li>
+  </ol>
+</div>

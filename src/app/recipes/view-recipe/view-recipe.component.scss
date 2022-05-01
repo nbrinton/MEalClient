@@ -1,0 +1,45 @@
+@import '../../../scss/index';
+
+:host {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  min-width: 400px;
+  width: 30%;
+  background-color: lighten($app-background-color, 2%);
+  padding: 10px;
+  margin-top: 10px;
+
+  i {
+    margin-left: 5px;
+
+    &.fa-pen-to-square, &.fa-copy {
+      &:hover {
+        color: $app-secondary-color;
+      }
+    }
+  }
+
+  h1, h2, h3 {
+    display: inline-block;
+  }
+
+  .recipe-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recipe-subheader {
+    width: 100%;
+    h3 {
+      margin: 0 5px 0 5px;
+      font-size: 15px;
+    }
+  }
+}
