@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Recipe} from '../../models/recipe';
+import {Recipe} from '../../models/mock/recipe';
 import {ToastrService} from 'ngx-toastr';
 import {GenerateMealsService} from '../../services/generate-meals.service';
 

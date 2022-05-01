@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../models/recipe';
+import { Recipe } from '../models/mock/recipe';
 import { GenerateMealsService } from '../services/generate-meals.service';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { AddRecipeComponent } from '../forms/add-recipe/add-recipe.component';

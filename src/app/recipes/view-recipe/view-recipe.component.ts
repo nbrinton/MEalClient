@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../../models/recipe';
-import { GenerateMealsService } from '../../services/generate-meals.service';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api/api.service';
+import { Recipe } from '../../models/interfaces/recipe';
 
 @Component({
   selector: 'app-view-recipe',
@@ -10,17 +10,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewRecipeComponent implements OnInit {
 
-  recipe: Recipe | undefined;
+  // TODO: Figure out how to not need this first assignment and just have page wait to load from the API
+  recipe: Recipe = {
+    id: BigInt(0),
+    meal: {
+      id: 0,
+      name: 'Breakfast'
+    },
+    name: 'foo',
+    prepTime: 0,
+    cookTime: 0,
+    recipeIngredients: [],
+    recipeSteps: []
+  };
 
   constructor(
-    private gms: GenerateMealsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private api: ApiService
   ) {
   }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.recipe = this.gms.allRecipes.find(r => r.id === id);
+
+    this.api.getRecipe(id).subscribe(result => {
+      this.recipe = result;
+    }, error => console.error(error));
   }
 
 }

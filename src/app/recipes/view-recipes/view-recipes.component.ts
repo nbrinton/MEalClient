@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../../models/recipe';
-import { GenerateMealsService } from '../../services/generate-meals.service';
+import { ApiService } from '../../services/api/api.service';
+import { Recipe } from '../../models/interfaces/recipe';
 
 @Component({
   selector: 'app-view-recipes',
@@ -8,19 +8,23 @@ import { GenerateMealsService } from '../../services/generate-meals.service';
   styleUrls: ['./view-recipes.component.scss']
 })
 export class ViewRecipesComponent implements OnInit {
+  recipes: Recipe[] = [];
   breakfasts: Recipe[] = [];
   lunches: Recipe[] = [];
   dinners: Recipe[] = [];
 
   constructor(
-    private generateMealsService: GenerateMealsService
+    private api: ApiService
   ) {
   }
 
   ngOnInit(): void {
-    this.breakfasts = this.generateMealsService.getAllBreakfasts();
-    this.lunches = this.generateMealsService.getAllLunches();
-    this.dinners = this.generateMealsService.getAllDinners();
+    this.api.getRecipes().subscribe(result => {
+      this.recipes = result;
+      this.breakfasts = this.recipes.filter(r => r.meal.name === 'Breakfast');
+      this.lunches = this.recipes.filter(r => r.meal.name === 'Lunch');
+      this.dinners = this.recipes.filter(r => r.meal.name === 'Dinner');
+    }, error => console.error(error));
   }
 
 }

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import breakfasts from './mock-data/breakfasts.json';
 import lunches from './mock-data/lunches.json';
 import dinners from './mock-data/dinners.json';
-import { Recipe } from '../models/recipe';
+import { Recipe } from '../models/mock/recipe';
 import * as _ from 'lodash';
-import { Ingredient } from '../models/ingredient';
+import { Ingredient } from '../models/mock/ingredient';
 
 @Injectable({
   providedIn: 'root'
