@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Recipe} from '../models/mock/recipe';
-import {GenerateMealsService} from '../services/generate-meals.service';
-import * as _ from 'lodash';
-import {ToastrService} from 'ngx-toastr';
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { ApiService } from '../services/api/api.service';
+import { Recipe } from '../models/interfaces/recipe';
+import { GenerateMealPlanService } from '../services/generate-meal-plan/generate-meal-plan.service';
+import { UtilService } from '../services/util/util.service';
 
 @Component({
   selector: 'app-plan',
@@ -11,9 +12,14 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class PlanComponent implements OnInit {
 
+  recipes: Recipe[] = [];
   breakfasts: Recipe[] = [];
   lunches: Recipe[] = [];
   dinners: Recipe[] = [];
+
+  planBreakfasts: Recipe[] = [];
+  planLunches: Recipe[] = [];
+  planDinners: Recipe[] = [];
 
   allowDuplicateBreakfasts: boolean = true;
   allowDuplicateLunches: boolean = true;
@@ -25,126 +31,111 @@ export class PlanComponent implements OnInit {
 
   constructor(
     private toastr: ToastrService,
-    private generateMealsService: GenerateMealsService
+    private api: ApiService,
+    private gmp: GenerateMealPlanService,
+    private util: UtilService
   ) {
   }
 
   ngOnInit(): void {
-    if (this.generateMealsService.getNumBreakfasts() <= 7) {
-      this.allowDuplicateBreakfasts = true;
-      this.disableBreakfastToggle = true;
-    }
-    if (this.generateMealsService.getNumLunches() <= 7) {
-      this.allowDuplicateLunches = true;
-      this.disableLunchToggle = true;
-    }
-    if (this.generateMealsService.getNumDinners() <= 7) {
-      this.allowDuplicateDinners = true;
-      this.disableDinnerToggle = true;
-    }
+    this.api.getRecipes().subscribe(result => {
+      this.recipes = result;
+      this.breakfasts = this.recipes.filter(r => r.meal.name === 'Breakfast');
+      this.lunches = this.recipes.filter(r => r.meal.name === 'Lunch');
+      this.dinners = this.recipes.filter(r => r.meal.name === 'Dinner');
+
+      if (this.breakfasts.length <= 7) {
+        this.allowDuplicateBreakfasts = true;
+        this.disableBreakfastToggle = true;
+      }
+
+      if (this.lunches.length <= 7) {
+        this.allowDuplicateLunches = true;
+        this.disableLunchToggle = true;
+      }
+
+      if (this.dinners.length <= 7) {
+        this.allowDuplicateDinners = true;
+        this.disableDinnerToggle = true;
+      }
+    }, error => console.error(error));
   }
 
   onClickGenerateMeals() {
-    this.breakfasts = this.generateMealsService.generateBreakfasts();
-    this.lunches = this.generateMealsService.generateLunches();
-    this.dinners = this.generateMealsService.generateDinners();
+    this.planBreakfasts = this.gmp.generateMealPlan(this.breakfasts, this.allowDuplicateBreakfasts);
+    this.planLunches = this.gmp.generateMealPlan(this.lunches, this.allowDuplicateLunches);
+    this.planDinners = this.gmp.generateMealPlan(this.dinners, this.allowDuplicateBreakfasts);
   }
 
   onClickGenerateGroceryList() {
     let recipes: Recipe[] = [];
-    recipes = recipes.concat(this.breakfasts);
-    recipes = recipes.concat(this.lunches);
-    recipes = recipes.concat(this.dinners);
-    let ingredientsString: string = this.generateMealsService.copyIngredientsToClipboard(recipes);
+    recipes = recipes.concat(this.planBreakfasts);
+    recipes = recipes.concat(this.planLunches);
+    recipes = recipes.concat(this.planDinners);
+    let ingredientsString: string = this.gmp.copyIngredientsToClipboard(recipes);
 
     navigator.clipboard.writeText(ingredientsString);
-    this.toastr.success('Copied ingredients to clipboard!', undefined, { closeButton: true, timeOut: 1500 });
+    this.toastr.success('Copied ingredients to clipboard!', undefined, {closeButton: true, timeOut: 1500});
   }
 
-  // TODO: Refactor to reduce duplicate code. Maybe using an enum for the meal?
-
   onClickGenerateBreakfasts() {
-    this.breakfasts = this.generateMealsService.generateBreakfasts(this.allowDuplicateBreakfasts);
+    this.planBreakfasts = this.gmp.generateMealPlan(this.breakfasts, this.allowDuplicateBreakfasts);
   }
 
   onClickGenerateLunches() {
-    this.lunches = this.generateMealsService.generateLunches(this.allowDuplicateLunches);
+    this.planLunches = this.gmp.generateMealPlan(this.lunches, this.allowDuplicateLunches);
   }
 
   onClickGenerateDinners() {
-    this.dinners = this.generateMealsService.generateDinners(this.allowDuplicateDinners);
+    this.planDinners = this.gmp.generateMealPlan(this.dinners, this.allowDuplicateDinners);
   }
 
   onClickDeleteAllBreakfasts() {
-    this.breakfasts = [];
+    this.planBreakfasts = [];
   }
 
   onClickDeleteAllLunches() {
-    this.lunches = [];
+    this.planLunches = [];
   }
 
   onClickDeleteAllDinners() {
-    this.dinners = [];
+    this.planDinners = [];
   }
 
   deleteBreakfast(index: number) {
-    this.breakfasts.splice(index, 1);
+    this.planBreakfasts.splice(index, 1);
   }
 
   deleteLunch(index: number) {
-    this.lunches.splice(index, 1);
+    this.planLunches.splice(index, 1);
   }
 
   deleteDinner(index: number) {
-    this.dinners.splice(index, 1);
+    this.planDinners.splice(index, 1);
   }
 
   replaceBreakfast(index: number) {
-    let breakfast = this.generateMealsService.getRandomBreakfast();
-    while (!this.allowDuplicateBreakfasts && _.includes(this.breakfasts, breakfast)) {
-      breakfast = this.generateMealsService.getRandomBreakfast();
-    }
-    this.breakfasts.splice(index, 1, breakfast);
+    this.gmp.replaceMeal(this.planBreakfasts, index, this.breakfasts, this.allowDuplicateBreakfasts);
   }
 
   replaceLunch(index: number) {
-    let lunch = this.generateMealsService.getRandomLunch();
-    while (!this.allowDuplicateBreakfasts && _.includes(this.lunches, lunch)) {
-      lunch = this.generateMealsService.getRandomBreakfast();
-    }
-    this.lunches.splice(index, 1, lunch);
+    this.gmp.replaceMeal(this.planLunches, index, this.lunches, this.allowDuplicateLunches);
   }
 
   replaceDinner(index: number) {
-    let dinner = this.generateMealsService.getRandomDinner();
-    while (!this.allowDuplicateDinners && _.includes(this.dinners, dinner)) {
-      dinner = this.generateMealsService.getRandomDinner();
-    }
-    this.dinners.splice(index, 1, dinner);
+    this.gmp.replaceMeal(this.planDinners, index, this.dinners, this.allowDuplicateDinners);
   }
 
   addBreakfast() {
-    let breakfast = this.generateMealsService.getRandomBreakfast();
-    while (!this.allowDuplicateBreakfasts && _.includes(this.breakfasts, breakfast)) {
-      breakfast = this.generateMealsService.getRandomBreakfast();
-    }
-    this.breakfasts.push(breakfast);
+    this.planBreakfasts.push(this.util.getRandomEntry(this.breakfasts));
   }
 
   addLunch() {
-    let lunch = this.generateMealsService.getRandomLunch();
-    while (!this.allowDuplicateLunches && _.includes(this.lunches, lunch)) {
-      lunch = this.generateMealsService.getRandomLunch();
-    }
-    this.lunches.push(lunch);
+    this.planLunches.push(this.util.getRandomEntry(this.lunches));
   }
 
   addDinner() {
-    let dinner = this.generateMealsService.getRandomDinner();
-    while (!this.allowDuplicateBreakfasts && _.includes(this.breakfasts, dinner)) {
-      dinner = this.generateMealsService.getRandomDinner();
-    }
-    this.dinners.push(dinner);
+    this.planDinners.push(this.util.getRandomEntry(this.dinners));
   }
 
   toggleDuplicateBreakfasts() {

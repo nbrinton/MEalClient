@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Recipe} from '../../models/mock/recipe';
-import {ToastrService} from 'ngx-toastr';
-import {GenerateMealsService} from '../../services/generate-meals.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Recipe } from '../../models/interfaces/recipe';
+import { GenerateMealPlanService } from '../../services/generate-meal-plan/generate-meal-plan.service';
 
 @Component({
   selector: 'app-plan-meal',
@@ -14,7 +14,7 @@ export class PlanMealComponent implements OnInit {
   @Input() recipes: Recipe[] = [];
 
   @Input() disableToggle: boolean = false;
-  @Input() allowDuplicateRecipes: boolean = true;
+  @Input() allowDuplicates: boolean = true;
 
   @Output() toggleAllowDuplicateRecipesEvent = new EventEmitter<boolean>();
   @Output() generateRecipesEvent = new EventEmitter<boolean>();
@@ -25,7 +25,7 @@ export class PlanMealComponent implements OnInit {
 
   constructor(
     private toastr: ToastrService,
-    private gms: GenerateMealsService
+    private gmp: GenerateMealPlanService
   ) {
   }
 
@@ -33,9 +33,9 @@ export class PlanMealComponent implements OnInit {
   }
 
   copyIngredientsToClipboard() {
-    let ingredientsString: string = this.gms.copyIngredientsToClipboard(this.recipes);
+    let ingredientsString: string = this.gmp.copyIngredientsToClipboard(this.recipes);
     navigator.clipboard.writeText(ingredientsString);
-    this.toastr.success('Copied ingredients to clipboard!', undefined, { closeButton: true, timeOut: 1500 });
+    this.toastr.success('Copied ingredients to clipboard!', undefined, {closeButton: true, timeOut: 1500});
   }
 
   generate() {
@@ -59,8 +59,8 @@ export class PlanMealComponent implements OnInit {
   }
 
   toggleAllowDuplicateRecipes() {
-    this.allowDuplicateRecipes = !this.allowDuplicateRecipes;
-    this.toggleAllowDuplicateRecipesEvent.emit(this.allowDuplicateRecipes);
+    this.allowDuplicates = !this.allowDuplicates;
+    this.toggleAllowDuplicateRecipesEvent.emit(this.allowDuplicates);
   }
 
 }

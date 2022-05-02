@@ -1,8 +1,8 @@
 <div class="meals">
   <app-plan-meal name="Breakfast"
-                 [recipes]="breakfasts"
+                 [recipes]="planBreakfasts"
                  [disableToggle]="disableBreakfastToggle"
-                 [allowDuplicateRecipes]="allowDuplicateBreakfasts"
+                 [allowDuplicates]="allowDuplicateBreakfasts"
                  (toggleAllowDuplicateRecipesEvent)="toggleDuplicateBreakfasts()"
                  (generateRecipesEvent)="onClickGenerateBreakfasts()"
                  (deleteAllRecipesEvent)="onClickDeleteAllBreakfasts()"
@@ -11,9 +11,9 @@
                  (addRecipeEvent)="addBreakfast()">
   </app-plan-meal>
   <app-plan-meal name="Lunch"
-                 [recipes]="lunches"
+                 [recipes]="planLunches"
                  [disableToggle]="disableLunchToggle"
-                 [allowDuplicateRecipes]="allowDuplicateLunches"
+                 [allowDuplicates]="allowDuplicateLunches"
                  (toggleAllowDuplicateRecipesEvent)="toggleDuplicateLunches()"
                  (generateRecipesEvent)="onClickGenerateLunches()"
                  (deleteAllRecipesEvent)="onClickDeleteAllLunches()"
@@ -22,9 +22,9 @@
                  (addRecipeEvent)="addLunch()">
   </app-plan-meal>
   <app-plan-meal name="Dinner"
-                 [recipes]="dinners"
+                 [recipes]="planDinners"
                  [disableToggle]="disableDinnerToggle"
-                 [allowDuplicateRecipes]="allowDuplicateDinners"
+                 [allowDuplicates]="allowDuplicateDinners"
                  (toggleAllowDuplicateRecipesEvent)="toggleDuplicateDinners()"
                  (generateRecipesEvent)="onClickGenerateDinners()"
                  (deleteAllRecipesEvent)="onClickDeleteAllDinners()"
@@ -33,7 +33,7 @@
                  (addRecipeEvent)="addDinner()">
   </app-plan-meal>
 </div>
-<div *ngIf="breakfasts.length > 0 || lunches.length > 0 || dinners.length > 0"
+<div *ngIf="planBreakfasts.length > 0 || planLunches.length > 0 || planDinners.length > 0"
      id="generate-grocery-list-fab"
      (click)="onClickGenerateGroceryList()"
      class="fab"

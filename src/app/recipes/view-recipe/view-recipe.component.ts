@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api/api.service';
 import { Recipe } from '../../models/interfaces/recipe';
 import { RecipeTime } from '../../models/interfaces/recipe-time';
+import { GenerateMealPlanService } from '../../services/generate-meal-plan/generate-meal-plan.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-view-recipe',
@@ -37,7 +39,9 @@ export class ViewRecipeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private gmp: GenerateMealPlanService,
+    private toastr: ToastrService
   ) {
   }
 
@@ -79,6 +83,13 @@ export class ViewRecipeComponent implements OnInit {
     };
 
     return recipeTime;
+  }
+
+  copyIngredientsToClipboard() {
+    let ingredientsString: string = this.gmp.copyIngredientsToClipboard([this.recipe]);
+
+    navigator.clipboard.writeText(ingredientsString);
+    this.toastr.success('Copied ingredients to clipboard!', undefined, {closeButton: true, timeOut: 1500});
   }
 
 }

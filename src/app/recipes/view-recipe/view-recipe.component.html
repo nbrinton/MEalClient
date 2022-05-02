@@ -12,7 +12,10 @@
     <i class="fa-solid fa-stopwatch"></i><h3>Cook Time: {{cookTime.hours}}:{{cookTime.minutes | number:'2.'}}</h3>
   </div>
   <h2>Ingredients</h2>
-  <i class="fas fa-copy fa-lg" title="Copy to clip-board"></i>
+  <i class="fas fa-copy fa-lg"
+     title="Copy to clip-board"
+     (click)="copyIngredientsToClipboard()">
+  </i>
   <ul>
     <li *ngFor="let ri of recipe.recipeIngredients">
       <p>{{ri.quantity}} {{ri.units}} {{ri.ingredient.name}}
